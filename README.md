@@ -16,7 +16,7 @@ Sondaki nokta bulunduğunuz klasör içinde projenizi kurmak için gereklidir. B
 
 Projenizin ana dizininde .env isimli bir dosya oluşturun ve Key'inizi bu dosya içinde REACT_APP_WEATHER_API_KEY olarak kaydedin.
 
-REACT_APP_WEATHER_API_KEY=api_keyiniz_buraya
+REACT_APP_WEATHER_API_KEY=api_keyiniz_buraya_yazin
 
 Oluşturduğunuz .env dosyasını .gitignore dosyanıza eklemeyi unutmayın.
 
