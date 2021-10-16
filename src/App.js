@@ -25,13 +25,10 @@ const App = () => {
         latitude && longitude && getWeatherData(latitude, longitude);
     }, [latitude, longitude]);
 
-    return ( <
-        div >
-        <
-        h2 > Hava Durumu < /h2>  <
-        HavaDurumu weather = { weather }
-        />  <
-        /div >
+    return ( <div>
+        <h2> Hava Durumu </h2>  
+        <HavaDurumu weather = { weather }/>  
+        </div >
     );
 };
 
