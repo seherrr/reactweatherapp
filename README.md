@@ -25,7 +25,7 @@ Src klasörü içindeki bütün dosyaları silin ve iki adet dosya oluşturun: A
 Uygulamamızı en basit haliyle çalışır hale getirdikten sonra terminalden uygulamamızı başlatın.
 
 npm start
-
+ 
 Kullanacağımız API Endpoint'i bulalım.
 
 https://openweathermap.org/current adresine gidin ve By geographic coordinates bölümündeki örnek linki kopyalayın.
