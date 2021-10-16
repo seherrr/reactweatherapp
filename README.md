@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+Bu uygulamada hava durumu Web API'a istek gönderildi ve aldığımız verilerle kullanıcının bulunduğu konumdaki hava durumunu ekrana yazdırıldı.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+API: https://openweathermap.org/api
 
-## Available Scripts
+Bu linke tıklayın ve üye olun.
 
-In the project directory, you can run:
+Üye olduktan sonra e-mail adresinize gelen maili onaylayın.
 
-### `npm start`
+Ardından https://home.openweathermap.org/api_keys adresine giderek API Key'inizi kopyalayın ve bir yere kaydedin. Bu Key ile ücretsiz API üzerinden hava durumu verilerini çekebileceksiniz.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Proje için bir klasör oluşturun ve bu klasör içinde React projenizi oluşturun.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+npx create-react-app .
 
-### `npm test`
+Sondaki nokta bulunduğunuz klasör içinde projenizi kurmak için gereklidir. Bu komutu kullandığınız klasör boş olmalıdır.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Projenizin ana dizininde .env isimli bir dosya oluşturun ve Key'inizi bu dosya içinde REACT_APP_WEATHER_API_KEY olarak kaydedin.
 
-### `npm run build`
+REACT_APP_WEATHER_API_KEY=api_keyiniz_buraya
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Oluşturduğunuz .env dosyasını .gitignore dosyanıza eklemeyi unutmayın.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Src klasörü içindeki bütün dosyaları silin ve iki adet dosya oluşturun: App.js ve index.js.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Uygulamamızı en basit haliyle çalışır hale getirdikten sonra terminalden uygulamamızı başlatın.
 
-### `npm run eject`
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Kullanacağımız API Endpoint'i bulalım.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://openweathermap.org/current adresine gidin ve By geographic coordinates bölümündeki örnek linki kopyalayın.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+Bu link içine üç tane parametre gireceğiz: Enlem (lat), Boylam (lon), ve API Key.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Önce API isteğini yapacak olan paketimizi yükleyelim.
 
-## Learn More
+npm install axios
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Kullanıcımızın lokasyon bilgilerine ulaşmaya çalışalım.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm i use-position
 
-### Code Splitting
+------------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Uygulamamızın dili varsayılan olarak ingilizce. Bunun nedeni; API isteğini yaparken herhangi bir dil seçeneği belirtmedik. Kullanıcının kullandığı tarayıcıdan dilini öğrenip bunu API isteğimize eklememiz gerekecek.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Sıcaklık değeri varsayılan olarak Kelvin birimine göre ayarlanmış. Bizim bunu metric sistemdeki birime, yani Celsius'a çevirmemiz gerekecek.
