@@ -46,3 +46,4 @@ npm i use-position
 Uygulamamızın dili varsayılan olarak ingilizce. Bunun nedeni; API isteğini yaparken herhangi bir dil seçeneği belirtmedik. Kullanıcının kullandığı tarayıcıdan dilini öğrenip bunu API isteğimize eklememiz gerekecek.
 
 Sıcaklık değeri varsayılan olarak Kelvin birimine göre ayarlanmış. Bizim bunu metric sistemdeki birime, yani Celsius'a çevirmemiz gerekecek.
+ 
